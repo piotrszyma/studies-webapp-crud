@@ -1,0 +1,55 @@
+@import helper._
+
+@import models.forms.User
+@(loginForm: play.data.Form[User])(errors: String = null)
+
+@parts.content {
+    <div class="wrapper">
+        <div class="form">
+            <div class="form-logo">
+                <p class="logo">Janusz & Mirek</p>
+                <p class="under-logo">Delivery Services</p>
+            </div>
+
+            @form(routes.LoginController.submit()) {
+
+                <table>
+                    <tr>
+                        <td colspan="2">User panel</td>
+                    </tr>
+                    <tr>
+                        <td>Username</td>
+                        <td>
+                            @if(errors != null) {
+                                <div class="form-error-3">@errors</div>
+                            }
+                            <input class="login-form" type="text" class="form-control"
+                            name="@loginForm("name").name"
+                            id="@loginForm("name").id"
+                            value="@loginForm("name").value"
+                            placeholder="username"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" class="form-control"
+                        name="@loginForm("password").name"
+                        id="@loginForm("password").id"
+                        value="@loginForm("password ").value"
+                        placeholder="password"></td>
+                    </tr>
+                </table>
+
+                <input class="form-button" type="submit" value="login">
+                <a href="@routes.IndexController.index()">
+                    <div class="form-button">
+                        Back
+                    </div>
+                </a>
+            }
+        </div>
+
+    </div>
+
+}(false)("none")()
+

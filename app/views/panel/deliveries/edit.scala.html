@@ -1,0 +1,45 @@
+@(user: String = "none")(deliveryID: String = "none")
+
+    @parts.content {
+    <div class="panel-content">
+        <div class="panel-header">
+            Edit Panel for Delivery with ID: @deliveryID
+        </div>
+            <div class="panel-form">
+                <form name="employeeProperties" action="modify" method="get">
+                    <input type="hidden" name="id" value="@deliveryID">
+                    <table>
+                        <tr>
+                            <td>Courier:</td>
+                            <td>
+                                <select
+                                name="courier"
+                                id="courier">
+                                </select>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select
+                                name="status"
+                                id="status">
+                                    <option value="pending">Pending</option>
+                                    <option value="delivery">Deliveried</option>
+                                    <option value="transit">In transit</option>
+                                </select>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2"><input type="submit"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="panel-wrapper"></div>
+    }(true)(user)("deliveries-edit")

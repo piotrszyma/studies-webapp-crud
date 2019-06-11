@@ -1,0 +1,69 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                             controllers.IndexController.index()
+
+
+# Package page
+GET         /shipment                     controllers.ShipmentController.index()
+POST        /shipment                     controllers.ShipmentController.submit()
+
+# User page
+GET         /login                        controllers.LoginController.index()
+POST        /login                        controllers.LoginController.submit()
+GET         /logout                       controllers.LoginController.logout()
+
+# PANEL ROUTES
+GET         /panel                        controllers.PanelController.index(error: String ?= null)
+
+# PANEL VEHICLES
+GET         /panel/vehicles               controllers.PanelControllerVehicle.show(error: String ?= "null")
+GET         /panel/vehicles/get           controllers.PanelControllerVehicle.get(id: String ?= "all")
+GET         /panel/vehicles/edit          controllers.PanelControllerVehicle.edit(id: String ?= "null")
+POST        /panel/vehicles/modify        controllers.PanelControllerVehicle.modify()
+GET         /panel/vehicles/delete        controllers.PanelControllerVehicle.delete(id: String ?= "null")
+
+#PANEL PACKAGES
+GET         /panel/packages                controllers.PanelControllerDeliveries.show(error: String ?= "null")
+GET         /panel/packages/get            controllers.PanelControllerDeliveries.get(id: String?="all")
+GET         /panel/packages/edit           controllers.PanelControllerDeliveries.edit(id: String ?= "null")
+GET         /panel/packages/modify         controllers.PanelControllerDeliveries.modify(id: String ?= "null", courier: String ?= "null", status: String ?= "null")
+GET         /panel/packages/delete         controllers.PanelControllerDeliveries.delete(id: String ?= "null")
+
+#PANEL STATS
+GET         /panel/stats                   controllers.PanelControllerStats.show(error: String ?= "null")
+GET         /panel/stats/get               controllers.PanelControllerStats.get(id: String ?= "all")
+GET         /panel/stats/edit              controllers.PanelControllerStats.edit(id: String ?= "null")
+POST        /panel/stats/modify            controllers.PanelControllerStats.modify
+GET         /panel/stats/delete            controllers.PanelControllerStats.delete(id: String ?= "null")
+
+#PANEL EMPLOYEES
+GET         /panel/employees               controllers.PanelControllerEmployees.show(error: String ?= "null")
+GET         /panel/employees/get           controllers.PanelControllerEmployees.get(id: String ?= "all")
+GET         /panel/employees/edit          controllers.PanelControllerEmployees.edit(id: String ?= "null")
+POST        /panel/employees/modify        controllers.PanelControllerEmployees.modify
+GET         /panel/employees/delete        controllers.PanelControllerEmployees.delete(id: String ?= "null")
+
+#PANEL CLIENTS
+GET         /panel/clients                 controllers.PanelControllerClients.show(error: String ?= "null")
+GET         /panel/clients/get             controllers.PanelControllerClients.get(id: String?= "all")
+GET         /panel/clients/edit            controllers.PanelControllerClients.edit(id: String ?= "null")
+POST        /panel/clients/modify          controllers.PanelControllerClients.modify
+GET         /panel/clients/delete          controllers.PanelControllerClients.delete(id: String ?= "null")
+
+#PANEL USERS
+GET         /panel/users                   controllers.PanelControllerUsers.show(error: String ?= "null")
+GET         /panel/users/get               controllers.PanelControllerUsers.get(id: String?= "all")
+GET         /panel/users/edit              controllers.PanelControllerUsers.edit(id: String ?= "null")
+POST        /panel/users/modify            controllers.PanelControllerUsers.modify
+GET         /panel/users/delete            controllers.PanelControllerUsers.delete(id: String ?= "null")
+
+#MISC ROUTES
+GET         /panel/branches                controllers.PanelControllerMiscDB.getBranches
+GET         /panel/regions                 controllers.PanelControllerMiscDB.getRegions
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /public/*file                  controllers.Assets.at(path="/public", file)
+

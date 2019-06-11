@@ -1,0 +1,86 @@
+@(user: String = "none")(employeeID: String = "none")
+
+
+@parts.content {
+    <div class="panel-content">
+        <div class="panel-header">
+
+        @if(employeeID == "0") {
+            Add new employee to database
+        } else {
+            Edit Panel for Employee with ID: @employeeID
+        }
+        </div>
+        <div class="panel-form">
+            <form name="employeeProperties" action="@routes.PanelControllerEmployees.modify()" method="post">
+                <table>
+                    <tr>
+                        <td>First Name:</td>
+                        <td>
+                            <input type="hidden" name="employeeID" value="@employeeID">
+                            <input name="employeeFirstName"
+                            id="employeeFirstName"
+                            type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Last Name:</td>
+                        <td>
+                            <input name="employeeLastName"
+                            id="employeeLastName"
+                            type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SSN:</td>
+                        <td>
+                            <input name="employeeSSN"
+                            id="employeeSSN"
+                            type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone:</td>
+                        <td>
+                            <input name="employeePhone"
+                            id="employeePhone"
+                            type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td>
+                            <input name="employeeAddress"
+                            id="employeeAddress"
+                            type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Branch:</td>
+                        <td>
+                            <select
+                            name="employeeBranch"
+                            id="employeeBranch">
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Vehicle:</td>
+                        <td>
+                            <select
+                            name="employeeVehicle"
+                            id="employeeVehicle">
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="panel-wrapper"></div>
+}(true)(user)("employees-edit")

@@ -1,0 +1,66 @@
+@(user: String = "none")(userID: String = "none")
+
+@parts.content {
+    <div class="panel-content">
+        <div class="panel-header">
+        @if(userID == "0") {
+            Add new user to database
+        } else {
+            Edit Panel for user with ID: @userID
+        }
+        </div>
+        <div class="panel-form">
+            <form name="employeeProperties" action="@routes.PanelControllerUsers.modify()" method="post">
+                <table>
+                    <input type="hidden" name="userID" value="@userID">
+                    <tr>
+                        <td>Employee:</td>
+                        <td>
+                            <select
+                            name="userEmployeeID"
+                            id="userEmployeeID">
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Type:</td>
+                        <td>
+                            <select
+                            name="userType"
+                            id="userType">
+                                <option value="CEO">CEO</option>
+                                <option value="manager">Manager</option>
+                                <option value="worker">Courier</option>
+                            </select>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Login:</td>
+                        <td>
+                            <input name="userLogin"
+                            id="userLogin"
+                            type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Password: @if(userID != "0") { (edit) }</td>
+                        <td>
+                            <input name="userPassword"
+                            id="userPassword"
+                            type="password">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><input type="submit"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="panel-wrapper"></div>
+}(true)(user)("users-edit")

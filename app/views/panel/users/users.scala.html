@@ -1,0 +1,35 @@
+@(user: String = "none")(error: String = "null")
+@parts.content {
+    <div class="panel-content">
+        @if(error != "null") {
+            <div class="panel-info">
+            @error
+            </div>
+        }
+        <div class="panel-table">
+
+            <table>
+
+                <tr>
+                    <td>ID</td>
+                    <td>Login</td>
+                    <td>Type</td>
+                    <td>Name</td>
+                    <td>Surname</td>
+                    <td>Options</td>
+                </tr>
+            </table>
+        </div>
+        <div class="form-options">
+            Additional options:
+            <a href="@routes.PanelControllerUsers.edit("0")">
+                <div class="form-button-small">
+                    Add new user
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="panel-wrapper"></div>
+
+}(true)(user)("users")

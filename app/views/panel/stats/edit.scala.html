@@ -1,0 +1,53 @@
+@(user: String = "none")(BranchID: String = "none")
+
+@parts.content {
+    <div class="panel-content">
+        <div class="panel-header">
+        @if(BranchID == "0") {
+            Add new branch to database
+        } else {
+            Edit Panel for Branch with ID: @BranchID
+
+        }
+        </div>
+        <div class="panel-form">
+            <form name="vehicleProperties" action="@routes.PanelControllerStats.modify()" method="post">
+                <table>
+                    <tr>
+                        <td>Branch name:</td>
+                        <td>
+                            <input type="hidden" name="branchID" value="@BranchID">
+                            <input name="branchName"
+                            id="branchName"
+                            type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td>
+                            <input name="branchAddress"
+                            id="branchAddress"
+                            type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Region:</td>
+                        <td>
+                            <select
+                            name="branchRegion"
+                            id="branchRegion">
+                            </select>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td colspan="2"><input type="submit"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="panel-wrapper"></div>
+}(true)(user)("stats-edit")

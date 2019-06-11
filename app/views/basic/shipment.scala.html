@@ -1,0 +1,269 @@
+@import helper._
+
+@import models.forms.SendPackage
+@(shipmentForm: play.data.Form[SendPackage])(errors: String = null)
+
+@parts.content {
+    <div class="wrapper">
+
+        <div class="form">
+            <div class="form-logo">
+                <p class="logo">Janusz & Mirek</p>
+                <p class="under-logo">Delivery Services</p>
+            </div>
+
+            @if(errors != null) {
+                <div class="form-error-2">@errors</div>
+            }
+
+            @form(routes.ShipmentController.submit()) {
+                <div class="sender-table">
+                    <table>
+                        <tr><td colspan="2">Sender</td></tr>
+                        <tr>
+                            <td>First name</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("senderFirstName").name"
+                                id="@shipmentForm("senderFirstName").id"
+                                value="@shipmentForm("senderFirstName").value"
+                                placeholder="First name"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Last name</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("senderLastName").name"
+                                id="@shipmentForm("senderLastName").id"
+                                value="@shipmentForm("senderLastName").value"
+                                placeholder="Last name"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Phone number</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("senderPhone").name"
+                                id="@shipmentForm("senderPhone").id"
+                                value="@shipmentForm("senderPhone").value"
+                                placeholder="Phone number"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Region</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="hidden" class="form-control"
+                                name="@shipmentForm("senderRegion").name"
+                                id="@shipmentForm("senderRegion").id"
+                                value="@shipmentForm("senderRegion").value"
+                                placeholder="Region">
+                                <select id="senderRegionSelect">
+
+                                </select>
+                        </tr>
+
+
+                        <tr>
+                            <td>Address</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("senderAddress").name"
+                                id="@shipmentForm("senderAddress").id"
+                                value="@shipmentForm("senderAddress").value"
+                                placeholder="Address"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Country</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("senderCountry").name"
+                                id="@shipmentForm("senderCountry").id"
+                                value="@shipmentForm("senderCountry").value"
+                                placeholder="Country"></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("senderEmail").name"
+                                id="@shipmentForm("senderEmail").id"
+                                value="@shipmentForm("senderEmail").value"
+                                placeholder="Email"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="receiver-table">
+                    <table>
+                        <tr><td colspan="2">Receiver</td></tr>
+                        <tr>
+                            <td>First name</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("receiverFirstName").name"
+                                id="@shipmentForm("receiverFirstName").id"
+                                value="@shipmentForm("receiverFirstName").value"
+                                placeholder="First name"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Last name</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("receiverLastName").name"
+                                id="@shipmentForm("receiverLastName").id"
+                                value="@shipmentForm("receiverLastName").value"
+                                placeholder="Last name"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Phone number</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("receiverPhone").name"
+                                id="@shipmentForm("receiverPhone").id"
+                                value="@shipmentForm("receiverPhone").value"
+                                placeholder="Phone number"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Region</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="hidden" class="form-control"
+                                name="@shipmentForm("receiverRegion").name"
+                                id="@shipmentForm("receiverRegion").id"
+                                value="@shipmentForm("receiverRegion").value"
+                                placeholder="Region">
+                                <select id="receiverRegionSelect">
+
+                                </select>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Address</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("receiverAddress").name"
+                                id="@shipmentForm("receiverAddress").id"
+                                value="@shipmentForm("receiverAddress").value"
+                                placeholder="Address"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Country</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("receiverCountry").name"
+                                id="@shipmentForm("receiverCountry").id"
+                                value="@shipmentForm("receiverCountry").value"
+                                placeholder="Country"></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("receiverEmail").name"
+                                id="@shipmentForm("receiverEmail").id"
+                                value="@shipmentForm("receiverEmail").value"
+                                placeholder="Email"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="shipment-table">
+                    <table>
+
+
+                        <tr><td colspan="2">Package informations</td></tr>
+
+                        <tr>
+                            <td>Weight</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("packageWeight").name"
+                                id="@shipmentForm("packageWeight").id"
+                                value="@shipmentForm("packageWeight").value"
+                                placeholder="Weight"></td>
+                        </tr>
+                        <tr>
+                            <td>Insurance</td>
+                            <td>
+                                <div class="form-required">Required!</div>
+                                <table class="form-radio-table">
+                                    <tr>
+                                        <input type="hidden" class="form-control"
+                                        name="@shipmentForm("packageInsurance").name"
+                                        id="@shipmentForm("packageInsurance").id"
+                                        value="@shipmentForm("packageInsurance").value"
+                                        placeholder="Weight">
+
+                                        <td class="form-radio">
+                                            <input name="insuranceType" type="radio" value="yes" id="insuranceYes" checked>
+                                        </td>
+                                        <td class="form-radio-info">
+                                            Yes
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-radio">
+                                            <input name="insuranceType" type="radio" value="no" id="insuranceNo">
+                                        </td>
+                                        <td class="form-radio-info">
+                                            No
+                                        </td>
+                                    </tr>
+                                </table>
+
+
+                                @*<input type="text" class="form-control"*@
+                                @*name="@shipmentForm("packageInsurance").name"*@
+                                @*id="@shipmentForm("packageInsurance").id"*@
+                                @*value="@shipmentForm("packageInsurance").value"*@
+                                @*placeholder="Insurance">*@
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Value</td>
+                            <td><div class="form-required">Required!</div>
+                                <input type="text" class="form-control"
+                                name="@shipmentForm("packageValue").name"
+                                id="@shipmentForm("packageValue").id"
+                                value="@shipmentForm("packageValue").value"
+                                placeholder="Value"></td>
+                        </tr>
+                    </table>
+
+                    <input class="form-button" type="submit" value="Submit" id="submit">
+                    <a href="@routes.IndexController.index()">
+                        <div class="form-button">
+                            Back
+                        </div>
+                    </a>
+
+                </div>
+
+                <div style=""></div>
+
+            </div>
+    </div>
+
+}
+}(false)("none")()

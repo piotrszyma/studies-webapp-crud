@@ -1,0 +1,76 @@
+@(user: String = "none")(vehicleID: String = "none")
+
+@parts.content {
+    <div class="panel-content">
+        <div class="panel-header">
+        @if(vehicleID == "0") {
+            Add new vehicle to database
+        } else {
+            Edit Panel for Vehicle with ID: @vehicleID
+        }
+        </div>
+        <div class="panel-form">
+            <form name="vehicleProperties" action="@routes.PanelControllerVehicle.modify()" method="post">
+                <table>
+                    <tr>
+                        <td>Vehicle name:</td>
+                        <td>
+                            <input type="hidden" name="vehicleID" value="@vehicleID">
+                            <input name="vehicleName"
+                            id="vehicleName"
+                            type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Insurance expiration:</td>
+                        <td>
+                            <input name="vehicleInsurance"
+                            id="vehicleInsurance"
+                            type="date"
+                            maxlength="8"
+                            >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Technical check:</td>
+
+                        <td>
+                            <input
+                            name="vehicleTechnicalCheck"
+                            id="vehicleTechnicalCheck"
+                            type="date"
+                            maxlength="8"
+                            >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fuel type:</td>
+                        <td>
+                            <select
+                            name="vehicleFuelType"
+                            id="vehicleFuelType">
+                                <option value="PB98">PB98</option>
+                                <option value="PB95">PB95</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="LPG">LPG</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Branch:</td>
+                        <td>
+                            <select
+                            name="vehicleBranchID"
+                            id="vehicleBranchID">
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="panel-wrapper"></div>
+}(true)(user)("vehicles-edit")

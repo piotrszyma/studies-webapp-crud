@@ -1,0 +1,24 @@
+@(user: String = "none")(error: String = null)
+@parts.content {
+    @if(error != null) {
+        <div class="panel-info">
+        @error
+        </div>
+    }
+    <div class="panel-wrapper">
+        <div class="panel-content">
+            <p>This is the Janusz & Mirek Delivery Services Company control panel.</p>
+            <p>Your EmployeeID is <b>@session().get("employeeID")</b></p>
+            <p>Your UserType is <b>@session().get("user")</b></p>
+            @if(session().get("user") == "CEO") {
+                <p>You are the boss and you can do everything you want.</p>
+            }
+            @if(session().get("user") == "manager") {
+                <p>You are manager. You can manage deliveries, vehicles and check branches statistics.</p>
+            }
+            @if(session().get("user") == "worker") {
+                <p>You can manage your own packages.</p>
+            }
+        </div>
+    </div>
+}(true)(user)("panel")

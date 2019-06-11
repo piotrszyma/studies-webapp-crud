@@ -1,0 +1,97 @@
+-- # --- Created by Ebean DDL
+-- # To stop Ebean DDL generation, remove this comment and start using Evolutions
+--
+-- # --- !Ups
+--
+-- create table januszmirek.jm_branch (
+--   id                            integer auto_increment not null,
+--   branch                        varchar(255),
+--   address                       varchar(255),
+--   constraint pk_jm_branch primary key (id)
+-- );
+--
+-- create table januszmirek.jm_clients (
+--   id                            integer auto_increment not null,
+--   first_name                    varchar(255),
+--   last_name                     varchar(255),
+--   address                       varchar(255),
+--   phone                         varchar(255),
+--   constraint pk_jm_clients primary key (id)
+-- );
+--
+-- create table januszmirek.jm_delivery (
+--   id                            integer auto_increment not null,
+--   status                        varchar(255),
+--   date                          date,
+--   constraint pk_jm_delivery primary key (id)
+-- );
+--
+-- create table januszmirek.jm_email (
+--   id                            integer auto_increment not null,
+--   e_mail                        varchar(255),
+--   constraint pk_jm_email primary key (id)
+-- );
+--
+-- create table januszmirek.jm_employee (
+--   id                            integer auto_increment not null,
+--   first_name                    varchar(255),
+--   last_name                     varchar(255),
+--   ssn                           varchar(255),
+--   phone                         varchar(255),
+--   address                       varchar(255),
+--   constraint pk_jm_employee primary key (id)
+-- );
+--
+-- create table januszmirek.jm_package (
+--   id                            integer auto_increment not null,
+--   insurance                     varchar(255),
+--   value                         integer,
+--   weight                        integer,
+--   constraint pk_jm_package primary key (id)
+-- );
+--
+-- create table januszmirek.jm_regions (
+--   id                            integer auto_increment not null,
+--   region                        varchar(255),
+--   number_of_packages            integer,
+--   constraint pk_jm_regions primary key (id)
+-- );
+--
+-- create table januszmirek.jm_users (
+--   id                            integer auto_increment not null,
+--   login                         varchar(255),
+--   password                      varchar(255),
+--   occupation                    varchar(255),
+--   constraint pk_jm_users primary key (id)
+-- );
+--
+-- create table januszmirek.jm_vehicles (
+--   id                            integer auto_increment not null,
+--   vehicle                       varchar(255),
+--   insurance                     date,
+--   tech_check                    date,
+--   fuel_type                     varchar(255),
+--   constraint pk_jm_vehicles primary key (id)
+-- );
+--
+--
+-- # --- !Downs
+--
+-- drop table if exists januszmirek.jm_branch;
+--
+-- drop table if exists januszmirek.jm_clients;
+--
+-- drop table if exists januszmirek.jm_delivery;
+--
+-- drop table if exists januszmirek.jm_email;
+--
+-- drop table if exists januszmirek.jm_employee;
+--
+-- drop table if exists januszmirek.jm_package;
+--
+-- drop table if exists januszmirek.jm_regions;
+--
+-- drop table if exists januszmirek.jm_users;
+--
+-- drop table if exists januszmirek.jm_vehicles;
+--

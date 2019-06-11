@@ -1,0 +1,40 @@
+@(user: String = "none")(error: String = "null")
+@parts.content {
+    <div class="panel-content">
+        @if(error != "null") {
+            <div class="panel-info">
+            @error
+            </div>
+        }
+        <div class="panel-table">
+
+            <table>
+
+                <tr>
+                    <td colspan="3">Sender</td>
+                    <td colspan="3">Receiver</td>
+                    <td colspan="2">Courier</td>
+                    <td >Package Info</td>
+                    <td >Options</td>
+
+                </tr>
+
+                <tr>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Address</td>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Address</td>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Status</td>
+                    <td></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div class="panel-wrapper"></div>
+
+}(true)(user)("deliveries")

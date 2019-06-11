@@ -1,0 +1,81 @@
+@(user: String = "none")(clientID: String = "none")
+
+@parts.content {
+    <div class="panel-content">
+        <div class="panel-header">
+            Edit Panel for Client with ID: @clientID
+        </div>
+
+        <div class="panel-form">
+            <form name="employeeProperties" action="@routes.PanelControllerClients.modify()" method="post">
+                <input type="hidden" name="clientID" value="@clientID">
+                <table>
+                    <tr>
+                        <td>First name:</td>
+                        <td>
+                            <input name="clientFirstName"
+                            id="clientFirstName"
+                            type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Last name:</td>
+                        <td>
+                            <input name="clientLastName"
+                            id="clientLastName"
+                            type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Address:</td>
+                        <td>
+                            <input name="clientAddress"
+                            id="clientAddress"
+                            type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Region:</td>
+                        <td>
+                            <select
+                            name="clientRegionID"
+                            id="clientRegionID">
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Phone:</td>
+                        <td>
+                            <input name="clientPhone"
+                            id="clientPhone"
+                            type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Status:</td>
+                        <td>
+                            <select
+                            name="status"
+                            id="status">
+                                <option value="pending">Pending</option>
+                                <option value="delivery">Deliveried</option>
+                                <option value="transit">In transit</option>
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><input type="submit"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="panel-wrapper"></div>
+}(true)(user)("clients-edit")

@@ -1,0 +1,38 @@
+@(user: String = "none")(error: String = "null")
+    @parts.content {
+
+
+        <div class="panel-content">
+            @if(error != "null") {
+                <div class="panel-info">
+                @error
+                </div>
+            }
+            <div class="panel-table">
+
+                <table>
+
+                    <tr>
+                        <td>Name</td>
+                        <td>Insurance Exp</td>
+                        <td>Technical Check</td>
+                        <td>Fuel Type</td>
+                        <td>Branch</td>
+                        <td>Region</td>
+                        <td>Options</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="form-options">
+                Additional options:
+                <a href="@routes.PanelControllerVehicle.edit("0")">
+                    <div class="form-button-small">
+                        Add new vehicle
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        <div class="panel-wrapper"></div>
+
+    }(true)(user)("vehicles")

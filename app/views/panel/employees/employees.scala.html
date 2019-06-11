@@ -1,0 +1,36 @@
+@(user: String = "none")(error: String = "null")
+@parts.content {
+    <div class="panel-content">
+        @if(error != "null") {
+            <div class="panel-info">
+            @error
+            </div>
+        }
+        <div class="panel-table">
+
+            <table>
+
+                <tr>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>SSN</td>
+                    <td>Phone</td>
+                    <td>Address</td>
+                    <td>Branch</td>
+                    <td>Num of Packages</td>
+                    <td>options</td>
+                </tr>
+            </table>
+        </div>
+        <div class="form-options">
+            Additional options:
+            <a href="@routes.PanelControllerEmployees.edit("0")">
+                <div class="form-button-small">
+                    Add new employee
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="panel-wrapper"></div>
+
+}(true)(user)("employees")

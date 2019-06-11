@@ -1,0 +1,23 @@
+@(userType: String = "none")
+<div class="panel-sidebar">
+    <div class="form-logo panel-logo">
+        <p class="logo">Janusz & Mirek</p>
+        <p class="under-logo">Delivery Services</p>
+    </div>
+
+    <ul>
+        <a href="@routes.PanelControllerDeliveries.show()"> <li>Deliveries</li></a>
+        @if(Integer.parseInt(session().get("permissionsID")) > 1) {
+            <a href="@routes.PanelControllerVehicle.show()"><li>Vehicles</li></a>
+            <a href="@routes.PanelControllerStats.show()"><li>Statistics</li></a>
+
+        }
+        @if(Integer.parseInt(session().get("permissionsID")) > 2) {
+            <a href="@routes.PanelControllerEmployees.show()"><li>Employees</li></a>
+            <a href="@routes.PanelControllerUsers.show()"><li>Users</li></a>
+            <a href="@routes.PanelControllerClients.show()"><li>Client</li></a>
+        }
+        <a href="@routes.LoginController.logout()"><li>Log out</li></a>
+    </ul>
+
+</div>
